@@ -1,3 +1,6 @@
+### 配置
+修改`health.js`里的username,password为你的一卡通信息
+
 ### 安装依赖和运行
 0. 安装好node.js
 1. cd到目录下
