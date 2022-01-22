@@ -5,14 +5,14 @@ const yestoday = dayjs().subtract(1, 'day').add(1,'hour')
 
 const userName = ""
 const passWord = ""
-const nianji = "2018级"
-const banji = "计算机科学与技术1802"
+const nianji = "2019级"
+const banji = "计算机科学与技术1905"
 
 async function main() {
 
   var options = {
     'method': 'POST',
-    'url': 'http://ca.its.csu.edu.cn/Home/Login/215',
+    'url': 'https://ca.csu.edu.cn/authserver/login?service=https%3A%2F%2Fwxxy.csu.edu.cn%2Fa_csu%2Fapi%2Fcas%2Findex%3Fredirect%3Dhttps%253A%252F%252Fwxxy.csu.edu.cn%252Fncov%252Fwap%252Fdefault%252Findex%253Ffrom%253Dhistory%26from%3Dwap',
     'headers': {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
@@ -24,7 +24,7 @@ async function main() {
   };
   request(options, (error, response) => {
     if (error) throw new Error(error);
-    console.log('Login/215: ' );
+    console.log('logined: ' );
     let opts = {
       url: "http://ca.its.csu.edu.cn/SysInfo/SsoService/215",
       headers: {
@@ -33,7 +33,7 @@ async function main() {
       }
     };
     request(opts, (e, r, b) => {
-      if (error) throw new Error(error);
+      if (e) throw new Error(e);
       console.log('SsoService/215: ');
       let $ = cheerio.load(r.body)
       const url = $('[name="myForm"]').attr('action')
@@ -52,6 +52,7 @@ async function main() {
         }
       };
       console.log('valid: ')
+
       request(opts, function (error, res) {
         if (error) throw new Error(error);
         console.log(res.headers['set-cookie']);

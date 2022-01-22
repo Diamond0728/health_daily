@@ -1,0 +1,20 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package_linux": "electron-packager . health --platform=linux --arch=x64 --icon=computer.ico --out=./out --app-version=0.0.1 --overwrite --ignore=node_modules --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/",
+    "package_macos": "electron-packager . health --platform=darwin --arch=x64 --app-version=0.0.1 --out=./out --overwrite --ignore=node_modules --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/",
+    "package_win64": "electron-packager . health --platform=win32 --arch=x64 --icon=computer.ico --out=./out --app-version=0.0.1 --overwrite --ignore=node_modules --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/",
+    "package_win32": "electron-packager . health --platform=win32 --arch=x86 --icon=computer.ico --out=./out --app-version=0.0.1 --overwrite --ignore=node_modules --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "16.0.6",
+    "electron-packager": "^15.4.0"
+  }
+}
